@@ -12,10 +12,17 @@
       <li class="nav-item"><a class="nav-link" (click)="Collapsed = true" routerLink="/Login" routerLinkActive="active">Login</a></li>
       <li class="nav-item"><a class="nav-link" (click)="Collapsed = true" routerLink="/Register" routerLinkActive="active">Register</a></li>
       <li class="nav-item"><a class="nav-link" (click)="Collapsed = true" routerLink="/AdminPanel" routerLinkActive="active">Admin panel</a></li>
+      <li class="nav-item"><a class="nav-link" (click)="Collapsed = true" routerLink="/thisisnotalink" routerLinkActive="active">Error test</a></li>
     </ul>
   </div>
 </nav>
 
-
-
 <router-outlet></router-outlet>
+
+<div class="footer fixed-bottom bg-light">
+  <div class="d-flex align-items-center">
+    <a href="https://twitter.com/home" class="p-2"><fa-icon [icon]="faTwitter" size="2x"></fa-icon></a>
+    <a href="https://www.instagram.com/" class="p-2"><fa-icon [icon]="faInstagramSquare" size="2x"></fa-icon></a>
+    <a href="https://www.linkedin.com/feed/" class="p-2"><fa-icon [icon]="faLinkedin" size="2x"></fa-icon></a>
+  </div>
+</div>

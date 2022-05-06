@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +14,9 @@ import { RegisterComponent } from './component/register/register.component';
 import { AdminPanelComponent } from './component/admin-panel/admin-panel.component';
 import { RecipesDetailComponent } from './component/Recipes-component/recipes-detail/recipes-detail.component';
 import { ShopDetailComponent } from './component/Shop-component/shop-detail/shop-detail.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FontAwesomeModule,
     NgbModule
   ],
   providers: [],

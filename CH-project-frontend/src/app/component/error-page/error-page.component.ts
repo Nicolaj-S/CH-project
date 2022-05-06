@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faMugHot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-error-page',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorPageComponent implements OnInit {
   title = 'Coffee break';
+  faMugHot = faMugHot;
   constructor() { }
 
   ngOnInit(): void {
