@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { BlogComponent } from './component/blog/blog.component';
-import { RecipesComponent } from './component/recipes/recipes.component';
-import { ShopComponent } from './component/shop/shop.component';
+import { RecipesComponent } from './component/Recipes-component/recipes/recipes.component';
+import { ShopComponent } from './component/Shop-component/shop/shop.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import { AdminPanelComponent } from './component/admin-panel/admin-panel.component';
+import { RecipesDetailComponent } from './component/Recipes-component/recipes-detail/recipes-detail.component';
+import { ShopDetailComponent } from './component/Shop-component/shop-detail/shop-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,11 +24,15 @@ import { RegisterComponent } from './component/register/register.component';
     RecipesComponent,
     ShopComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AdminPanelComponent,
+    RecipesDetailComponent,
+    ShopDetailComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
