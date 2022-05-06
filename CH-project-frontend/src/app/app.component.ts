@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,5 @@ export class AppComponent {
   public faTwitter = faTwitter;
   public faInstagramSquare = faInstagramSquare;
   public faLinkedin = faLinkedin;
+  
 }
