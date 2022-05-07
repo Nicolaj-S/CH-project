@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.4" />
@@ -18,6 +20,21 @@
     </PackageReference>
     <PackageReference Include="Moq" Version="4.17.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DTO\Blog_DTOModel\" />
+    <Folder Include="DTO\Cart_DTOModel\" />
+    <Folder Include="DTO\Recipes_DTOModel\" />
+    <Folder Include="DTO\Shop_DTOModel\" />
+    <Folder Include="Repository\CartRepo\" />
+    <Folder Include="Repository\BlogRepo\" />
+    <Folder Include="Repository\RecipiesRepo\" />
+    <Folder Include="Repository\ShopRepo\" />
+    <Folder Include="Services\CartServices\" />
+    <Folder Include="Services\BolgServices\" />
+    <Folder Include="Services\RecipesServices\" />
+    <Folder Include="Services\ShopServices\" />
   </ItemGroup>
 
 </Project>
