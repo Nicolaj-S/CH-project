@@ -6,5 +6,13 @@ html, body{
     padding: 0;
     overflow-x: hidden;
 }
+body::-webkit-scrollbar{
+  display: none
+}
+body{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
