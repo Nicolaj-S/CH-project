@@ -1,5 +1,18 @@
 <title>{{title}}</title>
-<img src="../../../assets/Images/imageSlider1.jpg" style="height:24em; width:40em;"  alt="">
-<img src="../../../assets/Images/imageSlider2.jpg" style="height:24em; width:40em;"  alt="">
-<img src="../../../assets/Images/imageSlider3.jpg" style="height:24em; width:40em;"  alt="">
 <p>Our profession your decision</p>
+
+<ngb-carousel #carousel [interval]="6000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+  <ng-template ngbSlide *ngFor="let img of images; index as i">
+      <div class="picsum-img-wrapper text-center">
+        <img [src]="img" alt="My image {{i + 1}} description" style="height: 26em; width: 42em;">
+      </div>
+  </ng-template>
+  <button class="carousel-control-next" type="button">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+  <button class="carousel-control-prev" type="button">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden"></span>
+  </button>
+</ngb-carousel>
