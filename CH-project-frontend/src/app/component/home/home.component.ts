@@ -11,16 +11,13 @@ export class HomeComponent {
   images = [1,2,3].map((n) => `../../../assets/Images/imageSlider${n}.jpg`)
 
   paused = false;
-  unpauseOnArrow = false;
-  pauseOnIndicator = false;
-  pauseOnHover = true;
   pauseOnFocus = true;
 
   onSlide(slideEvent: NgbSlideEvent) {
-    if (this.unpauseOnArrow && slideEvent.paused &&
+    if (slideEvent.paused &&
       (slideEvent.source === NgbSlideEventSource.ARROW_LEFT || slideEvent.source === NgbSlideEventSource.ARROW_RIGHT)) {
     }
-    if (this.pauseOnIndicator && !slideEvent.paused && slideEvent.source === NgbSlideEventSource.INDICATOR) {
+    if (!slideEvent.paused && slideEvent.source === NgbSlideEventSource.INDICATOR) {
     }
   }
 

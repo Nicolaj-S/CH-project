@@ -21,5 +21,8 @@ namespace CH_project_backend.Domain
         public string Password { get; set; }
         public string ProfilePicture { get; set; }
         public bool Admin { get; set; }
+
+        public List <Cart> Items { get; set; }
+        public List<Blog> Blogs { get; set; }
     }
 }

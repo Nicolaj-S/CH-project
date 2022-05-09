@@ -1,4 +1,5 @@
 ﻿    Add-Migration
     Remove-Migration
+
     Update-Database
     drop-database
