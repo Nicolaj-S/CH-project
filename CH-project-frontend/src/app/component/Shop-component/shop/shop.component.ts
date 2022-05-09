@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-shop',
@@ -8,7 +9,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 export class ShopComponent implements OnInit {
   title = 'Shop';
   public faCartShopping = faCartShopping;
-  constructor() { }
+  constructor(private route:) { }
 
   ngOnInit(): void {
   }
