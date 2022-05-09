@@ -10,16 +10,24 @@ import { RegisterComponent } from './component/register/register.component';
 import { AdminPanelComponent } from './component/admin-panel/admin-panel.component';
 import { RecipesDetailComponent } from './component/Recipes-component/recipes-detail/recipes-detail.component';
 import { ShopDetailComponent } from './component/Shop-component/shop-detail/shop-detail.component';
+import { CartComponent } from './component/Shop-component/cart/cart.component';
 
 const routes: Routes = [
   //primary used router links
-  {path:'Blog', component:BlogComponent},
-  {path:'Recipes', component:RecipesComponent},
-  {path:'Recipes/:Id', component:RecipesDetailComponent},
-  {path:'Shop', component:ShopComponent},
-  {path:'Shop/:Id',component:ShopDetailComponent},
-  {path:'Home',component:HomeComponent},
   {path:'', redirectTo:'/Home', pathMatch:'full'},
+  {path:'Home',component:HomeComponent},
+  {path:'Blog', component:BlogComponent},
+  {path:'Recipes', component:RecipesComponent, 
+  children:[
+    {path:'Recipes/:Id', component:RecipesDetailComponent}
+  ]},
+  {path:'Shop', component:ShopComponent, 
+  children:[
+    {path:'Shop/:Id', component:ShopDetailComponent},
+    {path:'Shop/Cart', component:CartComponent}
+  ]},
+  
+  
 
   //login/register router links
   {path:'Login', component:LoginComponent},

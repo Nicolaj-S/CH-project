@@ -16,6 +16,7 @@ import { RecipesDetailComponent } from './component/Recipes-component/recipes-de
 import { ShopDetailComponent } from './component/Shop-component/shop-detail/shop-detail.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CartComponent } from './component/Shop-component/cart/cart.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RegisterComponent,
     AdminPanelComponent,
     RecipesDetailComponent,
-    ShopDetailComponent
+    ShopDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
