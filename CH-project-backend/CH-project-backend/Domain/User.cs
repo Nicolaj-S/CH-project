@@ -24,5 +24,6 @@ namespace CH_project_backend.Domain
 
         public List <Cart> Items { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Recipes> Recipes { get; set; }
     }
 }

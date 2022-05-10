@@ -11,33 +11,32 @@ import { AdminPanelComponent } from './component/admin-panel/admin-panel.compone
 import { RecipesDetailComponent } from './component/Recipes-component/recipes-detail/recipes-detail.component';
 import { ShopDetailComponent } from './component/Shop-component/shop-detail/shop-detail.component';
 import { CartComponent } from './component/Shop-component/cart/cart.component';
+import { UserPanelComponent } from './component/user-panel/user-panel.component';
 
 const routes: Routes = [
-  //primary used router links
+  //redirect to homepage
   {path:'', redirectTo:'/Home', pathMatch:'full'},
-  {path:'Home',component:HomeComponent},
-  {path:'Blog', component:BlogComponent},
-  {path:'Recipes', component:RecipesComponent, 
-  children:[
-    {path:'Recipes/:Id', component:RecipesDetailComponent}
-  ]},
-  {path:'Shop', component:ShopComponent, 
-  children:[
-    {path:'Shop/:Id', component:ShopDetailComponent},
-    {path:'Shop/Cart', component:CartComponent}
-  ]},
-  
+
+  //primary used router links
+  {path:'Home',         component:HomeComponent},
+  {path:'Blog',         component:BlogComponent},
+  {path:'Recipes',      component:RecipesComponent},
+  {path:'Recipes/:Id',  component:RecipesDetailComponent},
+  {path:'Shop',         component:ShopComponent},
+  {path:'Shop/:Id',     component:ShopDetailComponent},
+  {path:'Shop/Cart',    component:CartComponent},
   
 
   //login/register router links
-  {path:'Login', component:LoginComponent},
-  {path:'Register', component:RegisterComponent},
+  {path:'Login',        component:LoginComponent},
+  {path:'Register',     component:RegisterComponent},
 
-  //admin panel router link
-  {path:'AdminPanel', component:AdminPanelComponent},
+  //admin and user panel router link
+  {path:'AdminPanel',   component:AdminPanelComponent},
+  {path:'User/:Id',     component:UserPanelComponent},
 
   //Error page default link when theres a problem with the route
-  {path:'**', component:ErrorPageComponent},
+  {path:'**',           component:ErrorPageComponent},
 ];
 
 @NgModule({

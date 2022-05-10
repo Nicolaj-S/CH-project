@@ -36,10 +36,10 @@ namespace CH_project_backend.Controllers
         [ProducesResponseType(400)]
         public async Task<IActionResult> GetUserById(int Id)
         {
-            if(!await userService.UserExistsByID(Id))
-            {
-                return NoContent();
-            }
+            //if(!await userService.UserExistsByID(Id))
+            //{
+            //    return NoContent();
+            //}
 
             var User = mapper.Map<UserModel>(await userService.GetUserById(Id));
             if (!ModelState.IsValid)
@@ -54,10 +54,10 @@ namespace CH_project_backend.Controllers
         [ProducesResponseType(400)]
         public async Task<IActionResult> GetUserByUsername(string Username)
         {
-            if(!await userService.UserExistsByUsername(Username))
-            {
-                return NoContent();
-            }
+            //if(!await userService.UserExistsByUsername(Username))
+            //{
+            //    return NoContent();
+            //}
 
             var user = mapper.Map<UserModel>(await userService.GetUserByUsername(Username));
             if (!ModelState.IsValid)
@@ -84,14 +84,14 @@ namespace CH_project_backend.Controllers
             }
 
             var User = mapper.Map<User>(createUser);
-            if (await userService.UserExistsByUsername(User.Username))
-            {
-                return Conflict("Username is already in use");
-            }
-            if (await userService.UserExistsByEmail(User.Email))
-            {
-                return Conflict("Mail is already in use");
-            }
+            //if (await userService.UserExistsByUsername(User.Username))
+            //{
+            //    return Conflict("Username is already in use");
+            //}
+            //if (await userService.UserExistsByEmail(User.Email))
+            //{
+            //    return Conflict("Mail is already in use");
+            //}
             if (!await userService.CreateUser(User))
             {
                 ModelState.AddModelError("", "Something went wrong while Saving");
@@ -115,10 +115,10 @@ namespace CH_project_backend.Controllers
                 return NotFound(ModelState);
             }
 
-            if(!await userService.UserExistsByID(Id))
-            {
-                return NotFound();
-            }
+            //if(!await userService.UserExistsByID(Id))
+            //{
+            //    return NotFound();
+            //}
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
@@ -139,10 +139,10 @@ namespace CH_project_backend.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> DeleteUser(int Id)
         {
-            if(!await userService.UserExistsByID(Id))
-            {
-                return NotFound();
-            }
+            //if(!await userService.UserExistsByID(Id))
+            //{
+            //    return NotFound();
+            //}
             var UserToDelete = await userService.GetUserById(Id);
             if (!ModelState.IsValid)
             {

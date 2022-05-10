@@ -21,23 +21,11 @@
       <div class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Blog">Blog</h2>
       </div>
-      <div class="card-deck">
-        <div class="card spaceing-card">
+      <div class="col-12 d-flex justify-content-center" *ngFor="let blog of cardForBlog;">
+        <div class="card spaceing-card w-75">
           <div class="card-body">
-            <h3 class="card-title">card for blog 1</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-          </div>
-        </div>
-        <div class="card spaceing-card">
-          <div class="card-body">
-            <h3 class="card-title">card for blog 2</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-          </div>
-        </div> 
-        <div class="card spaceing-card">
-          <div class="card-body">
-            <h3 class="card-title">card for blog 3</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            <h3 class="card-title text-center">{{blog.title}}</h3>
+            <p class="card-text">{{blog.description}}</p>
           </div>
         </div>
       </div>
@@ -46,23 +34,11 @@
       <div class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Shop">Shop</h2>
       </div>
-      <div class="card-deck">
-        <div class="card spaceing-card">
+      <div class="col-12 d-flex justify-content-center" *ngFor="let Shop of cardForShop;">
+        <div class="card spaceing-card w-75" routerLink="/Shop/{{Shop.id}}">
           <div class="card-body">
-            <h3 class="card-title">card for Shop 1</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-          </div>
-        </div>
-        <div class="card spaceing-card">
-          <div class="card-body">
-            <h3 class="card-title">card for Shop 2</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-          </div>
-        </div>
-        <div class="card spaceing-card">
-          <div class="card-body">
-            <h3 class="card-title">card for Shop 3</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            <h3 class="card-title text-center">{{Shop.title}}</h3>
+            <p class="card-text">{{Shop.description}}</p>
           </div>
         </div>
       </div>
@@ -71,26 +47,14 @@
       <div class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Recipes">Recipes</h2>
       </div>
-      <div class="card-deck">
-        <div class="card spaceing-card">
-          <div class="card-body">
-            <h3 class="card-title">card for Recipes 1</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+        <div class="col-12 d-flex justify-content-center" *ngFor="let Recipes of cardForRecipes;">
+          <div class="card spaceing-card w-75" routerLink="/Recipes/{{Recipes.id}}">
+            <div class="card-body">
+              <h3 class="card-title text-center">{{Recipes.title}}</h3>
+              <p class="card-text">{{Recipes.description}}</p>
+            </div>
           </div>
         </div>
-        <div class="card spaceing-card">
-          <div class="card-body">
-            <h3 class="card-title">card for Recipes 2</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-          </div>
-        </div>
-        <div class="card spaceing-card">
-          <div class="card-body">
-            <h3 class="card-title">card for Recipes 3</h3>
-            <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
