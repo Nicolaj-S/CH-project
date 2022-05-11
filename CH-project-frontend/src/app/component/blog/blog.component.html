@@ -1,6 +1,22 @@
 <title>{{title}}</title>
 
 <div class="spaceing-header">
-    <h1 class="text-style underline-header">Coffee House's blog</h1>
+    <h1 class="text-style underline-header" id="Top">Coffee House's blog</h1>
     <p class="text-style font-md">See our newest blog post here</p>
 </div>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center" *ngFor="let blog of cardForBlog;">
+          <div class="card spaceing-card w-100">
+                <div class="card-body">
+                    <ngx-skeleton-loader count="1" [theme]="{height: '4vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad"></ngx-skeleton-loader>
+                    <h2 *ngIf="contentLoad" class="card-title text-style">{{blog.title}}</h2>
+                    <ngx-skeleton-loader count="4" [theme]="{height: '2vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad"></ngx-skeleton-loader>
+                    <p *ngIf="contentLoad" class="card-text">{{blog.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

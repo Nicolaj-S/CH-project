@@ -17,7 +17,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4 col-sm-12">
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
       <div class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Blog">Blog</h2>
       </div>
@@ -30,20 +30,20 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 col-sm-12">
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
       <div class="d-flex justify-content-center underline-title">
-        <h2 class="text-style cursor-pointer" routerLink="/Shop">Shop</h2>
+        <h2 class="text-style cursor-pointer" routerLink="/Shop">Menu</h2>
       </div>
-      <div class="col-12 d-flex justify-content-center" *ngFor="let Shop of cardForShop;">
-        <div class="card spaceing-card w-75" routerLink="/Shop/{{Shop.id}}">
+      <div class="col-12 d-flex justify-content-center" *ngFor="let Menu of cardForMenu;">
+        <div class="card spaceing-card w-75" routerLink="/Shop/{{Menu.id}}">
           <div class="card-body">
-            <h3 class="card-title text-center">{{Shop.title}}</h3>
-            <p class="card-text">{{Shop.description}}</p>
+            <h3 class="card-title text-center">{{Menu.title}}</h3>
+            <p class="card-text">{{Menu.description}}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-4 col-sm-12">
+    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
       <div class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Recipes">Recipes</h2>
       </div>

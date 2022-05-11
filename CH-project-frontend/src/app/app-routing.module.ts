@@ -4,14 +4,13 @@ import { HomeComponent } from './component/home/home.component';
 import { ErrorPageComponent } from './component/error-page/error-page.component';
 import { BlogComponent } from './component/blog/blog.component';
 import { RecipesComponent } from './component/Recipes-component/recipes/recipes.component';
-import { ShopComponent } from './component/Shop-component/shop/shop.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { AdminPanelComponent } from './component/admin-panel/admin-panel.component';
 import { RecipesDetailComponent } from './component/Recipes-component/recipes-detail/recipes-detail.component';
-import { ShopDetailComponent } from './component/Shop-component/shop-detail/shop-detail.component';
-import { CartComponent } from './component/Shop-component/cart/cart.component';
 import { UserPanelComponent } from './component/user-panel/user-panel.component';
+import { MenuComponent } from './component/Menu-component/menu/menu.component';
+import { MenuDetailComponent } from './component/Menu-component/menu-detail/menu-detail.component';
 
 const routes: Routes = [
   //redirect to homepage
@@ -22,10 +21,8 @@ const routes: Routes = [
   {path:'Blog',         component:BlogComponent},
   {path:'Recipes',      component:RecipesComponent},
   {path:'Recipes/:Id',  component:RecipesDetailComponent},
-  {path:'Shop',         component:ShopComponent},
-  {path:'Shop/:Id',     component:ShopDetailComponent},
-  {path:'Shop/Cart',    component:CartComponent},
-  
+  {path:'Menu',         component:MenuComponent},
+  {path:'Menu/:Id',     component:MenuDetailComponent},
 
   //login/register router links
   {path:'Login',        component:LoginComponent},

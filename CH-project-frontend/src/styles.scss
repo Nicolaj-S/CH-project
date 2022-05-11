@@ -1,15 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-html, body{
+html, body, app-root{
     height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
-body::-webkit-scrollbar{
+html::-webkit-scrollbar,body::-webkit-scrollbar, app-root::-webkit-scrollbar{
   display: none
 }
-body{
+html,body, app-root{
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

@@ -6,7 +6,6 @@ namespace CH_project_backend.Domain
     {
         [Key]
         public int Id { get; set; }
-        public string Address { get; set; }
         public List <User> Users { get; set; }
         public ICollection<Shop> Shop { get; set; }
     }
