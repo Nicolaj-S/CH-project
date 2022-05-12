@@ -1,6 +1,5 @@
-export interface CreateShop{
+export interface CreateMenu{
     ItemName: string,
     Image: string,
     Description: string,
-    Cart?: number[]
 }

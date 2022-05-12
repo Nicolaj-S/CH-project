@@ -1,9 +1,6 @@
-import { ICart } from "./ICart";
-
-export interface IShop{
+export interface IMenu{
     Id: number,
     ItemName: string,
     Image: string
     Description: string,
-    ICart?: ICart[]
 }

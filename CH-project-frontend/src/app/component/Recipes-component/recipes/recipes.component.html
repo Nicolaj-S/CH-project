@@ -5,14 +5,26 @@
   <p class="text-style font-md">Here you can see some of our recipes</p>
 </div>
 
-  <a routerLink="/Recipes/1" routerLinkActive="active">Recipes1</a>
-  <br>
-  <a routerLink="/Recipes/2" routerLinkActive="active">Recipes2</a>
-  <br>
-  <a routerLink="/Recipes/3" routerLinkActive="active">Recipes3</a>
-  <br>
-  <a routerLink="/Recipes/4" routerLinkActive="active">Recipes4</a>
-  <br>
-  <a routerLink="/Recipes/5" routerLinkActive="active">Recipes5</a>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center" *ngFor="let recipes of cardForRecipes;">
+        <div class="card text-white bg-dark spaceing-card w-100">
+              <div class="card-body">
+                <ngx-skeleton-loader count="1" [theme]="{height: '4vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad"></ngx-skeleton-loader>
+                <h2 *ngIf="contentLoad" class="align-content-center card-title text-style centerHeader">{{recipes.Title}}</h2>
 
+                <ngx-skeleton-loader count="1" [theme]="{height: '20vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad"></ngx-skeleton-loader>
+                <div class="d-flex justify-content-center">
+                  <img *ngIf="contentLoad" src="{{recipes.Image}}" alt=""style="height:14em; margin-bottom: 1em; margin-top: 1em;">
+                </div>
+                
 
+                <ngx-skeleton-loader count="4" [theme]="{height: '2vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad"></ngx-skeleton-loader>
+                <p *ngIf="contentLoad" style="max-height: 4.9em; overflow:hidden;" class="card-text">{{recipes.Description}}</p>
+
+                <router-link class="cursor-pointer routerLinkUnderLine" *ngIf="contentLoad" routerLink="{{recipes.Id}}">More information here</router-link>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

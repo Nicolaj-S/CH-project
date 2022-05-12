@@ -32,10 +32,10 @@
     </div>
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
       <div class="d-flex justify-content-center underline-title">
-        <h2 class="text-style cursor-pointer" routerLink="/Shop">Menu</h2>
+        <h2 class="text-style cursor-pointer" routerLink="/Menu">Menu</h2>
       </div>
       <div class="col-12 d-flex justify-content-center" *ngFor="let Menu of cardForMenu;">
-        <div class="card spaceing-card w-75" routerLink="/Shop/{{Menu.id}}">
+        <div class="card spaceing-card w-75" routerLink="/Menu/{{Menu.id}}">
           <div class="card-body">
             <h3 class="card-title text-center">{{Menu.title}}</h3>
             <p class="card-text">{{Menu.description}}</p>

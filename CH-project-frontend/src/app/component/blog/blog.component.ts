@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-blog',
@@ -8,7 +7,6 @@ import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
 })
 export class BlogComponent{
   title = 'Blog';
-  public faArrowCircleUp = faArrowCircleUp;
   contentLoad = false;
 
   cardForBlog = [

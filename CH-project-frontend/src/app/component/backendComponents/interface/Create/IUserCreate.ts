@@ -6,7 +6,6 @@ export interface CreateUser{
     Password: string,
     ProfilePicture: string,
     Admin: boolean,
-    Cart?: number[],
     Blogs?: number[],
     Recipes?: number[],
 }

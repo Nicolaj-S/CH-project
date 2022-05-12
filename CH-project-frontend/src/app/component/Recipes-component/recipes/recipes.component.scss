@@ -1,1 +1,8 @@
 @import '../../home/home.component.scss';
+.routerLinkUnderLine{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+.centerHeader{
+    text-align: center;
+}
