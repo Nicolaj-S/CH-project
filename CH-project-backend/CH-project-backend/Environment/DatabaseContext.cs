@@ -8,5 +8,8 @@ namespace CH_project_backend.Environment
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
         public DbSet<User> User { get; set; }
+        public DbSet<Menu> Menu { get; set; }
+        public DbSet<Blog> Blog { get; set; }
+        public DbSet<Recipes> Recipes { get; set; }
     }
 }

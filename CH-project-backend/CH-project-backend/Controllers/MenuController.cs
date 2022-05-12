@@ -2,7 +2,7 @@
 
 namespace CH_project_backend.Controllers
 {
-    public class CartController : Controller
+    public class MenuController : Controller
     {
         public IActionResult Index()
         {

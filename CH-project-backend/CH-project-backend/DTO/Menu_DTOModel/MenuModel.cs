@@ -1,6 +1,6 @@
-﻿namespace CH_project_backend.DTO.Shop_DTOModel
+﻿namespace CH_project_backend.DTO.Menu_DTOModel
 {
-    public class ShopModel
+    public class MenuModel
     {
         public int Id { get; set; }
         public string ItemName { get; set; }
