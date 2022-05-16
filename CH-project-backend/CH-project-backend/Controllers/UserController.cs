@@ -2,6 +2,7 @@
 using CH_project_backend.Domain;
 using CH_project_backend.DTO.User_DTOModel;
 using CH_project_backend.Services.UserServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CH_project_backend.Controllers
@@ -18,7 +19,8 @@ namespace CH_project_backend.Controllers
             userService = _UserService;
             mapper = _mapper;
         }
-        
+
+        [Authorize]
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
         public async Task<IActionResult> GetallUsers()
@@ -72,6 +74,7 @@ namespace CH_project_backend.Controllers
         [ProducesResponseType(400)]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserModel createUser)
         {
+
             if (createUser == null)
             {
                 ModelState.AddModelError("", "Plase insert data to create a user");

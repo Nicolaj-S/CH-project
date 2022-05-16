@@ -6,11 +6,12 @@
 </div>
 
 <div class="d-flex justify-content-center spaceing-carousel">
-  <ngb-carousel style="height: 26em; width: 42em;" #carousel [interval]="6000" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+  <ngb-carousel style="height: 26em; width: 42em;" #carousel [interval]="6000" [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)">
     <ng-template ngbSlide *ngFor="let img of images; index as i">
-        <div class="picsum-img-wrapper">
-          <img [src]="img" alt="image {{i + 1}}" style="height:  26em; width: 42em;">
-        </div>
+      <div class="picsum-img-wrapper">
+        <img [src]="img" alt="image {{i + 1}}" style="height:  26em; width: 42em;">
+      </div>
     </ng-template>
   </ngb-carousel>
 </div>
@@ -47,15 +48,14 @@
       <div class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Recipes">Recipes</h2>
       </div>
-        <div class="col-12 d-flex justify-content-center" *ngFor="let Recipes of cardForRecipes;">
-          <div class="card spaceing-card w-75" routerLink="/Recipes/{{Recipes.id}}">
-            <div class="card-body">
-              <h3 class="card-title text-center">{{Recipes.title}}</h3>
-              <p class="card-text">{{Recipes.description}}</p>
-            </div>
+      <div class="col-12 d-flex justify-content-center" *ngFor="let Recipes of cardForRecipes;">
+        <div class="card spaceing-card w-75" routerLink="/Recipes/{{Recipes.id}}">
+          <div class="card-body">
+            <h3 class="card-title text-center">{{Recipes.title}}</h3>
+            <p class="card-text">{{Recipes.description}}</p>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </div>
-

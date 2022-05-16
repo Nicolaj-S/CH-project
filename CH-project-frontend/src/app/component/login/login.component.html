@@ -1,6 +1,42 @@
 <title>{{title}}</title>
 
 <div class="spaceing-header">
-    <h1 class="text-style underline-header">Welcome</h1>
-    <p class="text-style font-md">Please login here</p>
+  <h1 class="text-style underline-header">Welcome</h1>
+  <p class="text-style font-md">Please login here</p>
+</div>
+
+
+<div class="d-flex h-100">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center h-100">
+      <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+        <div class="card" style="border-radius: 15px">
+          <div class="card-body p-5">
+            <h1 class="h1-styling d-flex justify-content-center">Login here</h1>
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Username</label>
+                <input placeholder="Please insert your username" type="Username" class="form-control"
+                  id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" placeholder="Please insert you password" class="form-control"
+                  id="exampleInputPassword1">
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-lg btn-dark">
+                  Login
+                </button>
+              </div>
+              <p class="text-center text-muted mt-5 mb-0">
+                Don't have an account?
+                <a routerLink="/Register" class="fw-bold text-body"><u>Register here</u></a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
