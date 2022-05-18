@@ -35,6 +35,9 @@
 .container-fluid{
   margin-top: 2em;
 }
+fa-icon{
+  cursor: pointer;
+}
 @media (max-width: 500px){
   .underline-header{
     margin-right: 6vw;

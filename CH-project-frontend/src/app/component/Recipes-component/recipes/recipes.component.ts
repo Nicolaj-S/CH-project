@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IRecipes } from '../../backendComponents/interface/Model/IRecipes';
 import { IUser } from '../../backendComponents/interface/Model/IUser';
-
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -12,9 +12,9 @@ import { IUser } from '../../backendComponents/interface/Model/IUser';
 })
 export class RecipesComponent{
   title = 'Recipes';
-
+  public faCircleXmark = faCircleXmark;
   contentLoad = false;
-
+  isAdmin = true;
   cardForRecipes = [
     {
       Id: 1,
@@ -65,5 +65,8 @@ export class RecipesComponent{
   goToDetail(Id: any){
     this.router.navigate(['/Recipes/', Id])
   }
-
+  deleteItem(Id:any){
+    this.cardForRecipes = this.cardForRecipes.filter(item => item.Id !== Id)
+    console.log("this id for recipes has been clicked "+Id)
+  }
 }

@@ -12,7 +12,11 @@
         <div class="card-body">
           <ngx-skeleton-loader count="1" [theme]="{height: '4vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
           </ngx-skeleton-loader>
-          <h2 *ngIf="contentLoad" class="card-title text-style">{{blog.title}}</h2>
+          <div *ngIf="contentLoad" class="d-flex">
+            <h2 class="card-title text-style">{{blog.title}}</h2>
+            <fa-icon class="align-right" *ngIf="isAdmin" size="2x" (click)="deleteItem(blog.Id)" [icon]="faCircleXmark">
+            </fa-icon>
+          </div>
           <ngx-skeleton-loader count="4" [theme]="{height: '2vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
           </ngx-skeleton-loader>
           <p *ngIf="contentLoad" class="card-text">{{blog.description}}</p>
