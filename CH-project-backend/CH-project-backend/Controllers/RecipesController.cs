@@ -2,11 +2,8 @@
 
 namespace CH_project_backend.Controllers
 {
-    public class RecipesController : Controller
+    public class RecipesController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

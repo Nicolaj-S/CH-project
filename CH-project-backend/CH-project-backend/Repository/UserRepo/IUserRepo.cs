@@ -1,4 +1,5 @@
 ﻿using CH_project_backend.Domain;
+using CH_project_backend.Model.Users;
 
 namespace CH_project_backend.Repository.UserRepo
 {
@@ -7,14 +8,14 @@ namespace CH_project_backend.Repository.UserRepo
         Task<ICollection<User>> GetAllUsers();
         Task<User> GetUserById(int id);
         Task<User> GetUserByUsername(string username);
-        //Task<bool> UserExistsByUsername(string username);
-        //Task<bool> UserExistsByID(int id);
-        //Task<bool> UserExistsByEmail(string email);
         Task<bool> CreateUser(User user);
         Task<bool> Save();
         Task<bool> UpdateUser(User user);
         Task<bool> DeleteUser(User user);
 
+        AuthenticateResponse Authenticate(AuthenticateRequest model, string ipAddress);
+        AuthenticateResponse RefreshToken(string token, string ipAddress);
+        void RevokeToken(string token, string ipAddress);
         User Login(User authUser);
     }
 }

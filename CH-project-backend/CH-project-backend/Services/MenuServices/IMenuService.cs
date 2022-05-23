@@ -6,6 +6,6 @@ namespace CH_project_backend.Services.MenuServices
     {
         Task<ICollection<Menu>> GetAllMenus();
         Task<Menu> GetMenuById(int id);
-        Task<Menu> 
+
     }
 }

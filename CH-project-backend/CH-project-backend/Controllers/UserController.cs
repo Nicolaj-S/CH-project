@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CH_project_backend.Domain;
-using CH_project_backend.DTO.User_DTOModel;
 using CH_project_backend.Services.UserServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +24,7 @@ namespace CH_project_backend.Controllers
         [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
         public async Task<IActionResult> GetallUsers()
         {
-            var users = mapper.Map<List<UserModel>>(await userService.GetAllUsers());
+            var users = mapper.Map<List<User>>(await userService.GetAllUsers());
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
@@ -43,7 +42,7 @@ namespace CH_project_backend.Controllers
             //    return NoContent();
             //}
 
-            var User = mapper.Map<UserModel>(await userService.GetUserById(Id));
+            var User = mapper.Map<User>(await userService.GetUserById(Id));
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
@@ -61,7 +60,7 @@ namespace CH_project_backend.Controllers
             //    return NoContent();
             //}
 
-            var user = mapper.Map<UserModel>(await userService.GetUserByUsername(Username));
+            var user = mapper.Map<User>(await userService.GetUserByUsername(Username));
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
@@ -72,7 +71,7 @@ namespace CH_project_backend.Controllers
         [HttpPost()]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        public async Task<IActionResult> CreateUser([FromBody] CreateUserModel createUser)
+        public async Task<IActionResult> CreateUser([FromBody] User createUser)
         {
 
             if (createUser == null)
@@ -107,7 +106,7 @@ namespace CH_project_backend.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> UpdateUser(int Id, [FromBody] UpdateUserModel updateUser)
+        public async Task<IActionResult> UpdateUser(int Id, [FromBody] User updateUser)
         {
             if(updateUser == null)
             {

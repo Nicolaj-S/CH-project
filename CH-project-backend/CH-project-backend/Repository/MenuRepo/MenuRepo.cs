@@ -19,5 +19,11 @@ namespace CH_project_backend.Repository.MenuRepo
             await context.AddAsync(menu);
             return await Save();
         }
+
+        public async Task<bool> Save()
+        {
+            var saved = await context.SaveChangesAsync();
+            return saved > 0 ? true : false;
+        }
     }
 }

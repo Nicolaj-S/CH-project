@@ -2,11 +2,8 @@
 
 namespace CH_project_backend.Controllers
 {
-    public class BlogController : Controller
+    public class BlogController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

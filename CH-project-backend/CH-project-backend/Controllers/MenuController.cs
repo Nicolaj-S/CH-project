@@ -2,11 +2,8 @@
 
 namespace CH_project_backend.Controllers
 {
-    public class MenuController : Controller
+    public class MenuController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }
