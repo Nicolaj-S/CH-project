@@ -2394,19 +2394,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nich\\.nuget\\packages\\": {}
+    "C:\\Users\\nicol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nich\\Documents\\GitHub\\CH-project\\CH-project-backend\\CH-project-backend\\CH-project-backend.csproj",
+      "projectUniqueName": "D:\\github repository\\CH-project\\CH-project-backend\\CH-project-backend\\CH-project-backend.csproj",
       "projectName": "CH-project-backend",
-      "projectPath": "C:\\Users\\nich\\Documents\\GitHub\\CH-project\\CH-project-backend\\CH-project-backend\\CH-project-backend.csproj",
-      "packagesPath": "C:\\Users\\nich\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nich\\Documents\\GitHub\\CH-project\\CH-project-backend\\CH-project-backend\\obj\\",
+      "projectPath": "D:\\github repository\\CH-project\\CH-project-backend\\CH-project-backend\\CH-project-backend.csproj",
+      "packagesPath": "C:\\Users\\nicol\\.nuget\\packages\\",
+      "outputPath": "D:\\github repository\\CH-project\\CH-project-backend\\CH-project-backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\nich\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2493,7 +2493,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300-preview.22204.3\\RuntimeIdentifierGraph.json"
       }
     }
   }

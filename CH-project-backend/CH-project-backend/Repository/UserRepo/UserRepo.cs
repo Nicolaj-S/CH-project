@@ -5,6 +5,10 @@ using CH_project_backend.Helpers;
 using CH_project_backend.Model.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace CH_project_backend.Repository.UserRepo
 {
@@ -20,11 +24,6 @@ namespace CH_project_backend.Repository.UserRepo
             jwtUtils = _jwtUtils;
             appSettings = _appSettings.Value;
         }
-
-
-
-        
-
         public async Task<bool> CreateUser(User user)
         {
             await context.AddAsync(user);
@@ -81,7 +80,13 @@ namespace CH_project_backend.Repository.UserRepo
 
 
 
-        //JwtToken
+
+
+
+
+
+
+
         public AuthenticateResponse Authenticate(AuthenticateRequest model, string ipAddress)
         {
             var user = context.User.SingleOrDefault(x => x.UserName == model.Username);
@@ -152,6 +157,16 @@ namespace CH_project_backend.Repository.UserRepo
             context.SaveChanges();
         }
 
+        private User getUserByRefreshToken(string token)
+        {
+            var user = context.User.SingleOrDefault(u => u.RefreshTokens.Any(t => t.Token == token));
+
+            if (user == null)
+                throw new AppException("Invalid token");
+
+            return user;
+        }
+
         private RefreshToken rotateRefreshToken(RefreshToken refreshToken, string ipAddress)
         {
             var newRefreshToken = jwtUtils.GenerateRefreshToken(ipAddress);
@@ -164,17 +179,7 @@ namespace CH_project_backend.Repository.UserRepo
             // remove old inactive refresh tokens from user based on TTL in app settings
             user.RefreshTokens.RemoveAll(x =>
                 !x.IsActive &&
-                x.Created.AddDays(appSettings.RefreshTokenTTl) <= DateTime.UtcNow);
-        }
-
-        private User getUserByRefreshToken(string token)
-        {
-            var user = context.User.SingleOrDefault(u => u.RefreshTokens.Any(t => t.Token == token));
-
-            if (user == null)
-                throw new AppException("Invalid token");
-
-            return user;
+                x.Created.AddDays(appSettings.RefreshTokenTTL) <= DateTime.UtcNow);
         }
 
         private void revokeDescendantRefreshTokens(RefreshToken refreshToken, User user, string ipAddress, string reason)
@@ -197,5 +202,6 @@ namespace CH_project_backend.Repository.UserRepo
             token.ReasonRevoked = reason;
             token.ReplacedByToken = replacedByToken;
         }
+
     }
 }
