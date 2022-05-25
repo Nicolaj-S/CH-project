@@ -1,29 +1,34 @@
-﻿using CH_project_backend.Domain;
+﻿using CH_project_backend.Auth;
+using CH_project_backend.Domain;
+using CH_project_backend.DTO;
+using CH_project_backend.Environment;
+using CH_project_backend.Helpers;
 using CH_project_backend.Model.Users;
 using CH_project_backend.Repository.UserRepo;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace CH_project_backend.Services.UserServices
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepo userRepo;
+        private readonly IUserRepo Repo;
 
-        public UserService(IUserRepo _userRepo)
+        public UserService(IUserRepo _Repo)
         {
-            userRepo = _userRepo;
+            Repo = _Repo;
         }
+        public async Task<ICollection<User>> GetAllUsers() => await Repo.GetAllUsers();
+        public async Task<User> GetUserById(int id) => await Repo.GetUserById(id);
+        public async Task<User> GetUserByUsername(string username) => await Repo.GetUserByUsername(username);
 
-        public async Task<ICollection<User>> GetAllUsers() => await userRepo.GetAllUsers();
-        public async Task<User> GetUserById(int id) => await userRepo.GetUserById(id);
-        public async Task<User> GetUserByUsername(string username) => await userRepo.GetUserByUsername(username);
-        
+        public async Task<bool> CreateUser(User user) => await Repo.CreateUser(user);
+        public async Task<bool> UpdateUser(User user) => await Repo.UpdateUser(user);
+        public async Task<bool> DeleteUser(User user) => await Repo.DeleteUser(user);
 
-        public async Task<bool> CreateUser(User user) => await userRepo.CreateUser(user);
-        public async Task<bool> UpdateUser(User user) => await userRepo.UpdateUser(user);
-        public async Task<bool> DeleteUser(User user) => await userRepo.DeleteUser(user);
-
-        public AuthenticateResponse Authenticate(AuthenticateRequest model, string ipAddress) => userRepo.Authenticate(model, ipAddress);
-        public AuthenticateResponse RefreshToken(string token, string ipAddress) => userRepo.RefreshToken(token, ipAddress);
-        public void RevokeToken(string token, string ipAddress) => userRepo.RevokeToken(token, ipAddress);
+        //jwtToken
+        public AuthenticateResponse Authenticate(AuthenticateRequest model, string ipAddress) => Repo.Authenticate(model, ipAddress);
+        public AuthenticateResponse RefreshToken(string token, string ipAddress) => Repo.RefreshToken(token, ipAddress);
+        public void RevokeToken(string token, string ipAddress) => Repo.RevokeToken(token, ipAddress);
     }
 }

@@ -11,9 +11,10 @@ namespace CH_project_backend.DTO
         public string LastName { get; set; }
         public string FullName { get { return FirstName + " " + LastName; } }
         public string Email { get; set; }
+        public bool Admin { get; set; }
         public string Password { get; set; }
-        public List<int> Blogs { get; set; }
-        public List<int> Recipes { get; set; }
+        public List<int> BlogId { get; set; }
+        public List<int> RecipeId { get; set; }
 
         public static Expression<Func<User, UserDTO>> UserDetails => User => new()
         {
@@ -21,9 +22,10 @@ namespace CH_project_backend.DTO
             FirstName = User.FirstName,
             LastName = User.LastName,
             Email = User.Email,
+            Admin = User.Admin,
             Password = User.Password,
-            Blogs = User.Blogs.Select(x => x.Id).ToList(),
-            Recipes = User.Recipes.Select(x => x.Id).ToList(),
+            BlogId = User.Blogs.Select(x => x.Id).ToList(),
+            RecipeId = User.Recipes.Select(x => x.Id).ToList(),
         };
     }
 }

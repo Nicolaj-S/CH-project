@@ -6,35 +6,32 @@ using CH_project_backend.Repository.BlogRepo;
 using CH_project_backend.Repository.MenuRepo;
 using CH_project_backend.Repository.RecipiesRepo;
 using CH_project_backend.Repository.UserRepo;
+using CH_project_backend.Services.BolgServices;
+using CH_project_backend.Services.MenuServices;
+using CH_project_backend.Services.RecipesServices;
 using CH_project_backend.Services.UserServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Configuration;
 using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var AdminCorsRules = "AdminCors";
+var AdminCorsRules = "AllowAllCors";
 
 builder.Services.AddCors(options =>
 {
-    //options.AddPolicy(name: UserCorsRules, builder =>
-    //{
-    //    builder.WithOrigins("164.68.120.109")
-    //            .WithMethods("GET","PATCH","POST")
-    //            .AllowAnyHeader();
-    //});
     options.AddPolicy(name: AdminCorsRules, builder =>
     {
         builder.AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader();
-
     });
 });
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull); ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -42,44 +39,26 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("connection")));
 
-{
-    var services = builder.Services;
-    var env = builder.Environment;
+//helpers for JwtToken
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
+builder.Services.AddScoped<IJwtUtils, JwtUtils>();
 
-    services.AddControllers()
-        .AddJsonOptions(x => x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
+//services 
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepo, UserRepo>();
 
-    // configure strongly typed settings object
-    services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-
-    // configure DI for application services
-    services.AddScoped<IJwtUtils, JwtUtils>();
-    services.AddScoped<IUserService, UserService>();
-    services.AddScoped<IUserRepo, UserRepo>();
-}
-
+//builder.Services.AddScoped<IBlogService, BlogService>();
 //builder.Services.AddScoped<IBlogRepo, BlogRepo>();
-builder.Services.AddScoped<IMenuRepo, MenuRepo>();
-//builder.Services.AddScoped<IRecipesRepo, Recipes>();
+
+//builder.Services.AddScoped<IMenuService, MenuService>();
+//builder.Services.AddScoped<IMenuRepo, MenuRepo>();
+
+//builder.Services.AddScoped<IRecipesService, RecipesService>();
+//builder.Services.AddScoped<IRecipesRepo, RecipesRepo>();
+
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-{
-    var context = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
-    var testUser = new User
-    {
-        FirstName = "Test",
-        LastName = "User",
-        UserName = "test",
-        Email = "test@Test.com",
-        Password = BCrypt.Net.BCrypt.HashPassword("test")
-    };
-    context.User.Add(testUser);
-    context.SaveChanges();
-}
-
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -88,16 +67,24 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// global error handler
-app.UseMiddleware<ErrorHandlerMiddleware>();
+app.UseStaticFiles();
 
-// custom jwt auth middleware
-app.UseMiddleware<JwtMiddleware>();
+app.UseRouting();
 
 app.UseCors();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGet("/AdminCorsRules",
+        context => context.Response.WriteAsync("AdminCorsRules"))
+            .RequireCors(AdminCorsRules);
+
+    endpoints.MapControllers()
+        .RequireCors(AdminCorsRules);
+
+    endpoints.MapSwagger();
+});
 
 app.Run();
