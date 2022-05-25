@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.Options;
+﻿using CH_project_backend.Helpers;
 using CH_project_backend.Services.UserServices;
-using CH_project_backend.Helpers;
+using Microsoft.Extensions.Options;
 
 namespace CH_project_backend.Auth
 {

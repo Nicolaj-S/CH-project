@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using CH_project_backend.Domain;
-using CH_project_backend.DTO;
+﻿using CH_project_backend.Domain;
 using CH_project_backend.Model.Users;
 using CH_project_backend.Services.UserServices;
 using Microsoft.AspNetCore.Authorization;
@@ -126,11 +124,11 @@ namespace CH_project_backend.Controllers
         [HttpPut("Update/{Id}")]
         public async Task<IActionResult> UpdateUser(int Id, [FromBody] User updateUser)
         {
-            if(updateUser == null)
+            if (updateUser == null)
             {
                 return NotFound(ModelState);
             }
-            if(Id != updateUser.Id)
+            if (Id != updateUser.Id)
             {
                 return NotFound(ModelState);
             }
@@ -157,7 +155,7 @@ namespace CH_project_backend.Controllers
             {
                 return NotFound(ModelState);
             }
-            if(!await userService.DeleteUser(UserToDelete))
+            if (!await userService.DeleteUser(UserToDelete))
             {
                 ModelState.AddModelError("", "something went wrong deleting user");
                 return StatusCode(500, ModelState);

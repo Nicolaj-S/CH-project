@@ -1,5 +1,4 @@
 using CH_project_backend.Auth;
-using CH_project_backend.Domain;
 using CH_project_backend.Environment;
 using CH_project_backend.Helpers;
 using CH_project_backend.Repository.BlogRepo;
@@ -10,11 +9,7 @@ using CH_project_backend.Services.BolgServices;
 using CH_project_backend.Services.MenuServices;
 using CH_project_backend.Services.RecipesServices;
 using CH_project_backend.Services.UserServices;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Configuration;
-using System.Text;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);

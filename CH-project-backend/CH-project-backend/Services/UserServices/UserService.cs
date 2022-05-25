@@ -1,12 +1,6 @@
-﻿using CH_project_backend.Auth;
-using CH_project_backend.Domain;
-using CH_project_backend.DTO;
-using CH_project_backend.Environment;
-using CH_project_backend.Helpers;
+﻿using CH_project_backend.Domain;
 using CH_project_backend.Model.Users;
 using CH_project_backend.Repository.UserRepo;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace CH_project_backend.Services.UserServices
 {

@@ -1,12 +1,12 @@
-﻿using Microsoft.Extensions.Options;
+﻿using CH_project_backend.Domain;
+using CH_project_backend.Environment;
+using CH_project_backend.Helpers;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using CH_project_backend.Domain;
-using CH_project_backend.Helpers;
-using CH_project_backend.Environment;
 
 namespace CH_project_backend.Auth
 {
@@ -20,7 +20,7 @@ namespace CH_project_backend.Auth
     {
         private DatabaseContext _context;
         private readonly AppSettings _appSettings;
-        public JwtUtils( DatabaseContext context, IOptions<AppSettings> appSettings) 
+        public JwtUtils(DatabaseContext context, IOptions<AppSettings> appSettings)
         {
             _context = context;
             _appSettings = appSettings.Value;

@@ -20,8 +20,8 @@ namespace CH_project_backend.Helpers
                 response.ContentType = "application/json";
                 switch (ex)
                 {
-                    case AppException e: response.StatusCode =(int)HttpStatusCode.BadRequest; break;
-                    case KeyNotFoundException e: response.StatusCode=(int)HttpStatusCode.NotFound; break;
+                    case AppException e: response.StatusCode = (int)HttpStatusCode.BadRequest; break;
+                    case KeyNotFoundException e: response.StatusCode = (int)HttpStatusCode.NotFound; break;
                     default: response.StatusCode = (int)HttpStatusCode.InternalServerError; break;
                 }
                 var result = JsonSerializer.Serialize(new { message = ex?.Message });
