@@ -12,18 +12,18 @@ namespace CH_project_backend.Controllers
     [EnableCors("AllowAllCors")]
     public class UserController : ControllerBase
     {
-        private readonly IUserService userService;
+        private readonly IUserService services;
 
-        public UserController(IUserService _UserService)
+        public UserController(IUserService _services)
         {
-            userService = _UserService;
+            services = _services;
         }
 
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetallUsers()
         {
-            var users = await userService.GetAllUsers();
+            var users = await services.GetAllUsers();
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
@@ -35,7 +35,7 @@ namespace CH_project_backend.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-            var response = userService.Authenticate(model, ipAddress());
+            var response = services.Authenticate(model, ipAddress());
             setTokenCookie(response.RefreshToken);
             return Ok(response);
         }
@@ -45,7 +45,7 @@ namespace CH_project_backend.Controllers
         public IActionResult RefreshToken()
         {
             var refreshToken = Request.Cookies["refreshToken"];
-            var response = userService.RefreshToken(refreshToken, ipAddress());
+            var response = services.RefreshToken(refreshToken, ipAddress());
             setTokenCookie(response.RefreshToken);
             return Ok(response);
         }
@@ -60,14 +60,14 @@ namespace CH_project_backend.Controllers
             if (string.IsNullOrEmpty(token))
                 return BadRequest(new { message = "Token is required" });
 
-            userService.RevokeToken(token, ipAddress());
+            services.RevokeToken(token, ipAddress());
             return Ok(new { message = "Token revoked" });
         }
 
         [HttpGet("{id}/refresh-tokens")]
         public IActionResult GetRefreshTokens(int id)
         {
-            var user = userService.GetUserById(id);
+            var user = services.GetUserById(id);
             return Ok(user);
         }
 
@@ -94,7 +94,7 @@ namespace CH_project_backend.Controllers
         [HttpGet("Id/{Id}")]
         public async Task<IActionResult> GetUserById(int Id)
         {
-            var User = await userService.GetUserById(Id);
+            var User = await services.GetUserById(Id);
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
@@ -105,7 +105,7 @@ namespace CH_project_backend.Controllers
         [HttpGet("Username/{Username}")]
         public async Task<IActionResult> GetUserByUsername(string Username)
         {
-            var user = await userService.GetUserByUsername(Username);
+            var user = await services.GetUserByUsername(Username);
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
@@ -117,7 +117,7 @@ namespace CH_project_backend.Controllers
         [HttpPost()]
         public async Task<IActionResult> CreateUser(User createUser)
         {
-            var result = await userService.CreateUser(createUser);
+            var result = await services.CreateUser(createUser);
             return result ? Ok(createUser) : BadRequest();
         }
 
@@ -138,7 +138,7 @@ namespace CH_project_backend.Controllers
             }
 
             var User = updateUser;
-            if (!await userService.UpdateUser(User))
+            if (!await services.UpdateUser(User))
             {
                 ModelState.AddModelError("", "something went wrong updating user");
                 return StatusCode(500, ModelState);
@@ -150,12 +150,12 @@ namespace CH_project_backend.Controllers
         public async Task<IActionResult> DeleteUser(int Id)
         {
 
-            var UserToDelete = await userService.GetUserById(Id);
+            var UserToDelete = await services.GetUserById(Id);
             if (!ModelState.IsValid)
             {
                 return NotFound(ModelState);
             }
-            if (!await userService.DeleteUser(UserToDelete))
+            if (!await services.DeleteUser(UserToDelete))
             {
                 ModelState.AddModelError("", "something went wrong deleting user");
                 return StatusCode(500, ModelState);

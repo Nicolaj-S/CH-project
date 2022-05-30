@@ -14,10 +14,37 @@ namespace CH_project_backend.Repository.MenuRepo
             context = _context;
         }
 
-        public async Task<bool> CreateMenu (Menu menu)
+        public async Task<bool> CreateMenu(Menu menu)
         {
             await context.AddAsync(menu);
             return await Save();
+        }
+
+        public async Task<bool> DeleteMenu(Menu menu)
+        {
+            context.Remove(menu);
+            return await Save();
+        }
+
+        public async Task<bool> UpdateMenu(Menu menu)
+        {
+            context.Update(menu);
+            return await Save();
+        }
+
+        public async Task<ICollection<Menu>> GetAllMenus()
+        {
+            return await context.Menu.ToListAsync();
+        }
+
+        public async Task<Menu> GetMenuByName(string ItemName)
+        {
+            return await context.Menu.Where(u => u.ItemName == ItemName).FirstOrDefaultAsync();
+        }
+
+        public async Task<Menu> GetMenuById(int id)
+        {
+            return await context.Menu.Where(u => u.Id == id).FirstOrDefaultAsync();
         }
 
         public async Task<bool> Save()

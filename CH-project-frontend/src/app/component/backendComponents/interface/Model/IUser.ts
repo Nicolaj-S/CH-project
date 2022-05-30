@@ -1,5 +1,6 @@
 import { IBlog } from "./IBlog";
 import { IRecipes } from "./IRecipes";
+import { IRefreshToken } from "./IRefreshToken";
 
 export interface IUser{
     Username: string,
@@ -11,4 +12,5 @@ export interface IUser{
     Admin: boolean,
     IBlog?: IBlog[],
     IRecipes?: IRecipes[],
+    IRefreshToken? : IRefreshToken,
 }

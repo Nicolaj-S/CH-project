@@ -12,14 +12,13 @@ namespace CH_project_backend.Services.MenuServices
             Repo = _Repo;
         }
 
-        public Task<ICollection<Menu>> GetAllMenus()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<ICollection<Menu>> GetAllMenus() => await Repo.GetAllMenus();
+        public async Task<Menu> GetMenuById(int id) => await Repo.GetMenuById(id);
+        public async Task<Menu> GetMenuByName(string ItemName) => await Repo.GetMenuByName(ItemName);
 
-        public Task<Menu> GetMenuById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<bool> CreateMenu(Menu menu) => await Repo.CreateMenu(menu);
+        public async Task<bool> UpdateMenu(Menu menu) => await Repo.UpdateMenu(menu);
+        public async Task<bool> DeleteMenu(Menu menu) => await Repo.DeleteMenu(menu);
+
     }
 }

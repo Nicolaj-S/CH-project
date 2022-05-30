@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using CH_project_backend.Services.MenuServices;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CH_project_backend.Controllers
@@ -8,6 +9,11 @@ namespace CH_project_backend.Controllers
     [EnableCors("AllowAllCors")]
     public class MenuController : ControllerBase
     {
-        
+        private readonly IMenuService services;
+
+        public MenuController(IMenuService _services)
+        {
+            services = _services;
+        }
     }
 }

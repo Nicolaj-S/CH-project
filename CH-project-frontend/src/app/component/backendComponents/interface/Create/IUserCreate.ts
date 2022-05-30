@@ -7,4 +7,5 @@ export interface CreateUser{
     Admin: boolean,
     Blogs?: number[],
     Recipes?: number[],
+    IRefreshToken? : number,
 }

@@ -8,7 +8,7 @@ import { IMenu } from '../../interface/Model/IMenu';
 })
 export class MenuComponent{
 
-  
+
   public ApiUrl = "--<insert Url to api item>--";
   url: string = "--<insert api url>--";
 
@@ -21,8 +21,12 @@ export class MenuComponent{
       return this.http.get<IMenu[]>(this.ApiUrl)
     }
 
-    GetMenu(Id:number):Observable<IMenu>{
+    GetMenuById(Id:number):Observable<IMenu>{
       return this.http.get<IMenu>(`${this.url}/Menu/${Id}`)
+    }
+
+    GetMenuByName(ItemName : string):Observable<IMenu>{
+      return this.http.get<IMenu>(`${this.url}/Menu/${ItemName}`)
     }
 
     create(data:any):Observable<CreateMenu>{

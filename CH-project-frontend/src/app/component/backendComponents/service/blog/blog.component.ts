@@ -22,6 +22,10 @@ export class BlogComponent {
       return this.http.get<IBlog[]>(this.ApiUrl)
     }
 
+    GetBlog(Id:number):Observable<IBlog>{
+      return this.http.get<IBlog>(`${this.url}/Blog/${Id}`)
+    }
+
     create(data:any):Observable<CreateBlog>{
       return this.http.post<CreateBlog>(`${this.url}Blog`, data)
     }
