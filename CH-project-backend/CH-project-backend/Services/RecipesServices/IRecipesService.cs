@@ -5,7 +5,7 @@ namespace CH_project_backend.Services.RecipesServices
     public interface IRecipesService
     {
         Task<ICollection<Recipes>> GetAllRecipes();
-        Task<Menu> GetRecipesById(int id);
+        Task<Recipes> GetRecipesById(int id);
 
         Task<bool> CreateRecipes(Recipes recipes);
         Task<bool> UpdateRecipes(Recipes recipes);
