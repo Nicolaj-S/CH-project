@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IRecipes } from '../../backendComponents/interface/Model/IRecipes';
 import { IUser } from '../../backendComponents/interface/Model/IUser';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { AppComponent } from 'src/app/app.component';
 
 @Component({
@@ -12,7 +11,6 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class RecipesComponent extends AppComponent {
   title = 'Recipes';
-  public faCircleXmark = faCircleXmark;
   contentLoad = false;
   cardForRecipes = [
     {

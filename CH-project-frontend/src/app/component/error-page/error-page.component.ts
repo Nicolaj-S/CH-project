@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faMugHot } from '@fortawesome/free-solid-svg-icons';
+
 import { AppComponent } from 'src/app/app.component';
 
 @Component({
@@ -9,7 +9,6 @@ import { AppComponent } from 'src/app/app.component';
 })
 export class ErrorPageComponent extends AppComponent {
   title = 'Coffee break';
-  faMugHot = faMugHot;
 
   ngOnInit(): void {}
 }

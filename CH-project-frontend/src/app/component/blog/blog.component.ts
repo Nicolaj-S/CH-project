@@ -10,7 +10,6 @@ import { AppComponent } from 'src/app/app.component';
 export class BlogComponent extends AppComponent {
   title = 'Blog';
   contentLoad = false;
-  public faCircleXmark = faCircleXmark;
 
   cardForBlog = [
     {

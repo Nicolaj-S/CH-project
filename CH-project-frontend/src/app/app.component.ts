@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Router, Event, NavigationStart } from '@angular/router';
 import { PlatformLocation } from '@angular/common';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+  faTwitter,
+  faLinkedin,
+  faInstagramSquare,
+} from '@fortawesome/free-brands-svg-icons';
+import { faCircleXmark, faMugHot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +19,8 @@ export class AppComponent {
   public faTwitter = faTwitter;
   public faInstagramSquare = faInstagramSquare;
   public faLinkedin = faLinkedin;
+  public faCircleXmark = faCircleXmark;
+  public faMugHot = faMugHot;
 
   constructor(public router: Router, location: PlatformLocation) {
     this.router.events.subscribe((event: Event) => {
