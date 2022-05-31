@@ -1,61 +1,61 @@
 <title>{{title}}</title>
 
-<div class="spaceing-header">
+<header class="spaceing-header">
   <h1 class="text-style underline-header">Coffee House</h1>
   <p class="text-style font-md">Our profession your decision</p>
-</div>
+</header>
 
-<div class="d-flex justify-content-center spaceing-carousel">
+<section class="d-flex justify-content-center spaceing-carousel">
   <ngb-carousel style="height: 26em; width: 42em;" #carousel [interval]="6000" [pauseOnFocus]="pauseOnFocus"
     (slide)="onSlide($event)">
     <ng-template ngbSlide *ngFor="let img of images; index as i">
-      <div class="picsum-img-wrapper">
+      <figure class="picsum-img-wrapper">
         <img [src]="img" alt="image {{i + 1}}" style="height:  26em; width: 42em;">
-      </div>
+      </figure>
     </ng-template>
   </ngb-carousel>
-</div>
+</section>
 
-<div class="container-fluid">
+<section class="container-fluid">
   <div class="row">
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-      <div class="d-flex justify-content-center underline-title">
+      <header class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Blog">Blog</h2>
-      </div>
-      <div class="col-12 d-flex justify-content-center" *ngFor="let blog of cardForBlog;">
+      </header>
+      <article class="col-12 d-flex justify-content-center" *ngFor="let blog of cardForBlog;">
         <div class="card spaceing-card w-75">
           <div class="card-body">
             <h3 class="card-title text-center">{{blog.title}}</h3>
             <p class="card-text">{{blog.description}}</p>
           </div>
         </div>
-      </div>
+      </article>
     </div>
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-      <div class="d-flex justify-content-center underline-title">
+      <header class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Menu">Menu</h2>
-      </div>
-      <div class="col-12 d-flex justify-content-center" *ngFor="let Menu of cardForMenu;">
+      </header>
+      <article class="col-12 d-flex justify-content-center" *ngFor="let Menu of cardForMenu;">
         <div class="card spaceing-card w-75" routerLink="/Menu/{{Menu.id}}">
           <div class="card-body">
             <h3 class="card-title text-center">{{Menu.title}}</h3>
             <p class="card-text">{{Menu.description}}</p>
           </div>
         </div>
-      </div>
+      </article>
     </div>
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
-      <div class="d-flex justify-content-center underline-title">
+      <header class="d-flex justify-content-center underline-title">
         <h2 class="text-style cursor-pointer" routerLink="/Recipes">Recipes</h2>
-      </div>
-      <div class="col-12 d-flex justify-content-center" *ngFor="let Recipes of cardForRecipes;">
+      </header>
+      <article class="col-12 d-flex justify-content-center" *ngFor="let Recipes of cardForRecipes;">
         <div class="card spaceing-card w-75" routerLink="/Recipes/{{Recipes.id}}">
           <div class="card-body">
             <h3 class="card-title text-center">{{Recipes.title}}</h3>
             <p class="card-text">{{Recipes.description}}</p>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
-</div>
+</section>

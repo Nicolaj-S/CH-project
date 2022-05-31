@@ -1,31 +1,31 @@
 <title>{{title}}</title>
 
-<div class="spaceing-header">
+<header class="spaceing-header">
   <h1 class="text-style underline-header">Coffee House's recipes</h1>
   <p class="text-style font-md">Here you can see some of our recipes</p>
-</div>
+</header>
 
-<div class="container-fluid">
+<section class="container-fluid">
   <div class="row">
-    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center"
+    <article class="col-xl-6 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center"
       *ngFor="let recipes of cardForRecipes;">
       <div class="card text-white bg-dark spaceing-card w-100">
         <div class="card-body">
           <ngx-skeleton-loader count="1" [theme]="{height: '4vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
           </ngx-skeleton-loader>
-          <div class="d-flex" *ngIf="contentLoad">
+          <header class="d-flex" *ngIf="contentLoad">
             <h2 class="justify-content-center card-title text-style centerHeader">{{recipes.Title}}
             </h2>
             <fa-icon class="align-right" (click)="deleteItem(recipes.Id)" *ngIf="isAdmin" size="2x"
               [icon]="faCircleXmark"></fa-icon>
-          </div>
+          </header>
 
           <ngx-skeleton-loader count="1" [theme]="{height: '20vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
           </ngx-skeleton-loader>
-          <div class="d-flex justify-content-center">
+          <figure class="d-flex justify-content-center">
             <img *ngIf="contentLoad" src="{{recipes.Image}}" alt=""
               style="height:14em; margin-bottom: 1em; margin-top: 1em;">
-          </div>
+          </figure>
 
 
           <ngx-skeleton-loader count="4" [theme]="{height: '2vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
@@ -37,6 +37,6 @@
             information here</router-link>
         </div>
       </div>
-    </div>
+    </article>
   </div>
-</div>
+</section>

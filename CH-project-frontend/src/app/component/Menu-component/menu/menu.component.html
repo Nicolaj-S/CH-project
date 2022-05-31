@@ -1,9 +1,9 @@
 <title>{{title}}</title>
 
-<div class="spaceing-header">
+<header class="spaceing-header">
   <h1 class="text-style underline-header">Coffee House's menu</h1>
   <p class="text-style font-md">Assortment for our customers</p>
-</div>
+</header>
 
 
 <form>
@@ -11,22 +11,24 @@
     [formControl]="filter">
 </form>
 
-<div class="container-fluid">
+<section class="container-fluid">
   <div class="row">
-    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center"
+    <article class="col-xl-3 col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center"
       *ngFor="let menu of MenuItems$ | async;">
       <div class="card text-white bg-dark spaceing-card w-100">
         <div class="card-body">
           <ngx-skeleton-loader count="1" [theme]="{height: '4vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
           </ngx-skeleton-loader>
-          <h2 *ngIf="contentLoad" class="card-title text-style UnderLine">
-            <ngb-highlight [result]="menu.ItemName" [term]="filter.value"></ngb-highlight>
-          </h2>
+          <header>
+            <h2 *ngIf="contentLoad" class="card-title text-style UnderLine">
+              <ngb-highlight [result]="menu.ItemName" [term]="filter.value"></ngb-highlight>
+            </h2>
+          </header>
           <ngx-skeleton-loader count="1" [theme]="{height: '20vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
           </ngx-skeleton-loader>
-          <div class="d-flex justify-content-center">
+          <figure class="d-flex justify-content-center">
             <img *ngIf="contentLoad" src="{{menu.Image}}" alt="" style="margin-bottom: 1em; margin-top: 1em;">
-          </div>
+          </figure>
           <ngx-skeleton-loader count="4" [theme]="{height: '2vh', 'background-color':'#6D6E6F'}" *ngIf="!contentLoad">
           </ngx-skeleton-loader>
           <p *ngIf="contentLoad" style="max-height: 4.9em; overflow:hidden;" class="card-text">{{menu.Description}}</p>
@@ -34,6 +36,6 @@
             information here</router-link>
         </div>
       </div>
-    </div>
+    </article>
   </div>
-</div>
+</section>
