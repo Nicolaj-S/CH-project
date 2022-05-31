@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-user-panel',
   templateUrl: './user-panel.component.html',
-  styleUrls: ['./user-panel.component.scss']
+  styleUrls: ['./user-panel.component.scss'],
 })
-export class UserPanelComponent implements OnInit {
+export class UserPanelComponent {
   title = 'User';
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
